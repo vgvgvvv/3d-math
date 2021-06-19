@@ -3,7 +3,6 @@
 //
 
 #include "Vector2.h"
-#include "MathFuncs.h"
 #include "Utility.h"
 
 const Vector2 Vector2::zeroVector(0.F, 0.F);
@@ -14,10 +13,6 @@ const Vector2 Vector2::leftVector(-1.F, 0.F);
 const Vector2 Vector2::rightVector(1.F, 0.F);
 const Vector2 Vector2::positiveInfinityVector(FLOAT_INFINITY, FLOAT_INFINITY);
 const Vector2 Vector2::negativeInfinityVector(-FLOAT_INFINITY, -FLOAT_INFINITY);
-
-const float Vector2::kEpsilon = 0.00001F;
-const float Vector2::kEpsilonNormalSqrt = 1e-15f;
-
 
 float& Vector2::operator[](int index) {
     ASSERT(index == 0 || index == 1, "Vector2 Index Error!!");
@@ -68,7 +63,7 @@ Vector2 Vector2::MoveTowards(Vector2 current, Vector2 target, float maxDistanceD
 void Vector2::Normalize()
 {
     float mag = magnitude();
-    if (mag > kEpsilon)
+    if (mag > Math::kEpsilon)
     {
         x = x / mag;
         y = y / mag;
@@ -97,11 +92,26 @@ Vector2 Vector2::Perpendicular(Vector2 inDirection)
     return Vector2(-inDirection.y, inDirection.x);
 }
 
+float Vector2::Dot(Vector2 lhs, Vector2 rhs)
+{
+	return lhs.x * rhs.x + lhs.y * rhs.y;
+}
+
+float Vector2::magnitude()
+{
+	return (float)Math::Sqrt(x * x + y * y);
+}
+
+float Vector2::sqrMagnitude()
+{
+	return x * x + y * y;
+}
+
 float Vector2::Angle(Vector2 from, Vector2 to)
 {
     // sqrt(a) * sqrt(b) = sqrt(a * b) -- valid for real numbers
     float denominator = (float)Math::Sqrt(from.sqrMagnitude() * to.sqrMagnitude());
-    if (denominator < kEpsilonNormalSqrt)
+    if (denominator < Math::kEpsilonNormalSqrt)
         return 0.F;
 
     float dot = Math::Clamp(Dot(from, to) / denominator, -1.F, 1.F);
@@ -138,6 +148,26 @@ Vector2 Vector2::ClampMagnitude(Vector2 vector, float maxLength)
                            normalized_y * maxLength);
     }
     return vector;
+}
+
+float Vector2::SqrMagnitude(Vector2 a)
+{
+	return a.x * a.x + a.y * a.y;
+}
+
+float Vector2::SqrMagnitude()
+{
+	return x * x + y * y;
+}
+
+Vector2 Vector2::Min(Vector2 lhs, Vector2 rhs)
+{
+	return Vector2(Math::Min(lhs.x, rhs.x), Math::Min(lhs.y, rhs.y));
+}
+
+Vector2 Vector2::Max(Vector2 lhs, Vector2 rhs)
+{
+	return Vector2(Math::Max(lhs.x, rhs.x), Math::Max(lhs.y, rhs.y));
 }
 
 Vector2 Vector2::SmoothDamp(Vector2 current, Vector2 target, Vector2& currentVelocity, float smoothTime, float maxSpeed)
@@ -254,4 +284,53 @@ bool Vector2::LineSegmentIntersection(Vector2 p1, Vector2 p2, Vector2 p3, Vector
     result.x = p1.x + t * bx;
     result.y = p1.y + t * by;
     return true;
+}
+
+Vector2 Vector2::operator+(const Vector2 b) const
+{
+	return Vector2{x + b.x, y + b.y};
+}
+
+Vector2 Vector2::operator-(const Vector2 b) const
+{
+	return {x - b.x, y - b.y};
+}
+
+Vector2 Vector2::operator*(const Vector2 b) const
+{
+	return {x * b.x, y * b.y};
+}
+
+Vector2 Vector2::operator/(const Vector2 b) const
+{
+	return {x / b.x, y / b.y};
+}
+
+Vector2 Vector2::operator-() const
+{
+	return {-x, -y};
+}
+
+Vector2 Vector2::operator*(const float d) const
+{
+	return {x * d, y * d};
+}
+
+Vector2 Vector2::operator/(float d) const
+{
+	return {x / d, y / d};
+}
+
+bool Vector2::operator==(Vector2 rhs) const
+{
+	// Returns false in the presence of NaN values.
+	float diff_x = x - rhs.x;
+	float diff_y = y - rhs.y;
+	return (diff_x * diff_x + diff_y * diff_y) < Math::kEpsilon * Math::kEpsilon;
+}
+
+bool Vector2::operator!=(Vector2 rhs) const
+{
+	// Returns true in the presence of NaN values.
+	return !(*this == rhs);
 }

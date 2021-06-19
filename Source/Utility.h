@@ -5,6 +5,7 @@
 #ifndef SOURCE_UTILITY_H
 #define SOURCE_UTILITY_H
 
+#include "MathFuncs.h"
 #include <limits>
 #include <iostream>
 

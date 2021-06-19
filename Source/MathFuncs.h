@@ -4,12 +4,15 @@
 
 #ifndef SOURCE_MATHFUNCS_H
 #define SOURCE_MATHFUNCS_H
+
 #include <limits>
 #include <cmath>
-#include <cstdarg>
-#include "Time.h"
 
 namespace Math {
+
+    const float kEpsilon = 0.00001F;
+    const float kEpsilonNormalSqrt = 1e-15f;
+	
     namespace MathInternal{
         constexpr float FloatMinNormal = 1.17549435E-38f;
         constexpr float FloatMinDenormal = std::numeric_limits<float>::epsilon();
@@ -19,69 +22,69 @@ namespace Math {
     float Repeat(float t, float length);
     float DeltaAngle(float current, float target);
 
-    float Sin(float f) { return sin(f); }
+    inline float Sin(float f) { return sin(f); }
 
-    float Cos(float f) { return cos(f); }
+    inline float Cos(float f) { return cos(f); }
 
-    float Tan(float f) { return tan(f); }
+    inline float Tan(float f) { return tan(f); }
 
-    float Asin(float f) { return asin(f); }
+    inline float Asin(float f) { return asin(f); }
 
-    float Acos(float f) { return acos(f); }
+    inline float Acos(float f) { return acos(f); }
 
-    float Atan(float f) { return atan(f); }
+    inline float Atan(float f) { return atan(f); }
 
-    float Atan(float y, float x) { return atan2(y, x); }
+    inline float Atan(float y, float x) { return atan2(y, x); }
 
-    float Sqrt(float f) { return sqrt(f); }
+    inline float Sqrt(float f) { return sqrt(f); }
 
-    float Abs(float f) { return abs(f); }
+    inline float Abs(float f) { return abs(f); }
 
-    int Abs(int i) { return abs(i); }
+    inline int Abs(int i) { return abs(i); }
 
-    float Min(float a, float b) { return a < b ? a : b; }
+    inline float Min(float a, float b) { return a < b ? a : b; }
 
-    int Min(int a, int b) { return a < b ? a : b; }
+    inline int Min(int a, int b) { return a < b ? a : b; }
 
-    float Max(float a, float b) { return a > b ? a : b; }
+    inline float Max(float a, float b) { return a > b ? a : b; }
 
-    int Max(int a, int b) { return a > b ? a : b; }
+    inline int Max(int a, int b) { return a > b ? a : b; }
 
     // Returns /f/ raised to power /p/.
-    float Pow(float f, float p) { return pow(f, p); }
+    inline float Pow(float f, float p) { return pow(f, p); }
 
     // Returns e raised to the specified power.
-    float Exp(float power) { return (float)exp(power); }
+    inline float Exp(float power) { return (float)exp(power); }
 
     // Returns the natural (base e) logarithm of a specified number.
-    float Log(float f) { return (float)log(f); }
+    inline float Log(float f) { return (float)log(f); }
 
     // Returns the base 10 logarithm of a specified number.
-    float Log10(float f) { return (float)log10(f); }
+    inline float Log10(float f) { return (float)log10(f); }
 
     // Returns the smallest integer greater to or equal to /f/.
-    float Ceil(float f) { return (float)ceil(f); }
+    inline float Ceil(float f) { return (float)ceil(f); }
 
     // Returns the largest integer smaller to or equal to /f/.
-    float Floor(float f) { return (float)floor(f); }
+    inline float Floor(float f) { return (float)floor(f); }
 
     // Returns /f/ rounded to the nearest integer.
-    float Round(float f) { return (float)round(f); }
+    inline float Round(float f) { return (float)round(f); }
 
     // Returns the smallest integer greater to or equal to /f/.
-    int CeilToInt(float f) { return (int)ceil(f); }
+    inline int CeilToInt(float f) { return (int)ceil(f); }
 
     // Returns the largest integer smaller to or equal to /f/.
-    int FloorToInt(float f) { return (int)floor(f); }
+    inline int FloorToInt(float f) { return (int)floor(f); }
 
     // Returns /f/ rounded to the nearest integer.
-    int RoundToInt(float f) { return (int)round(f); }
+    inline int RoundToInt(float f) { return (int)round(f); }
 
     // Returns the sign of /f/.
-    float Sign(float f) { return f >= 0.0 ? 1.0f : -1.0f; }
+    inline float Sign(float f) { return f >= 0.0 ? 1.0f : -1.0f; }
 
     // The infamous ''3.14159265358979...'' value (RO).
-    const float PI = (float)3.14159265358979;
+    const float PI = 3.14159265358979f;
 
     // A representation of positive infinity (RO).
     const float Infinity = std::numeric_limits<float>::infinity();

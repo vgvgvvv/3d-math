@@ -5,10 +5,6 @@
 #ifndef SOURCE_VECTOR2_H
 #define SOURCE_VECTOR2_H
 
-#include <string>
-#include "MathFuncs.h"
-#include "Vector3.h"
-
 class Vector2 {
 public:
     float x;
@@ -22,9 +18,6 @@ public:
     static const Vector2 rightVector;
     static const Vector2 positiveInfinityVector;
     static const Vector2 negativeInfinityVector;
-
-    static const float kEpsilon;
-    static const float kEpsilonNormalSqrt;
 
     float& operator[] (int index);
 
@@ -108,13 +101,13 @@ public bool Equals(Vector2 other)
     static Vector2 Perpendicular(Vector2 inDirection);
 
     // Dot Product of two vectors.
-    static float Dot(Vector2 lhs, Vector2 rhs) { return lhs.x * rhs.x + lhs.y * rhs.y; }
+    static float Dot(Vector2 lhs, Vector2 rhs);
 
     // Returns the length of this vector (RO).
-    float magnitude() {  return (float)Math::Sqrt(x * x + y * y);  }
+    float magnitude();
 
     // Returns the squared length of this vector (RO).
-    float sqrMagnitude() { return x * x + y * y; }
+    float sqrMagnitude();
 
     // Returns the angle in degrees between /from/ and /to/.
     static float Angle(Vector2 from, Vector2 to);
@@ -129,15 +122,15 @@ public bool Equals(Vector2 other)
     static Vector2 ClampMagnitude(Vector2 vector, float maxLength);
 
     // [Obsolete("Use Vector2.sqrMagnitude")]
-    static float SqrMagnitude(Vector2 a) { return a.x * a.x + a.y * a.y; }
+    static float SqrMagnitude(Vector2 a);
     // [Obsolete("Use Vector2.sqrMagnitude")]
-    float SqrMagnitude() { return x * x + y * y; }
+    float SqrMagnitude();
 
     // Returns a vector that is made from the smallest components of two vectors.
-    static Vector2 Min(Vector2 lhs, Vector2 rhs) { return Vector2(Math::Min(lhs.x, rhs.x), Math::Min(lhs.y, rhs.y)); }
+    static Vector2 Min(Vector2 lhs, Vector2 rhs);
 
     // Returns a vector that is made from the largest components of two vectors.
-    static Vector2 Max(Vector2 lhs, Vector2 rhs) { return Vector2(Math::Max(lhs.x, rhs.x), Math::Max(lhs.y, rhs.y)); }
+    static Vector2 Max(Vector2 lhs, Vector2 rhs);
 
     static Vector2 SmoothDamp(Vector2 current, Vector2 target, Vector2& currentVelocity, float smoothTime, float maxSpeed);
 
@@ -151,35 +144,24 @@ public bool Equals(Vector2 other)
     static bool LineSegmentIntersection(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, Vector2& result);
 
     // Adds two vectors.
-    Vector2 operator+(const Vector2 b) const { return Vector2{x + b.x, y + b.y}; }
+    Vector2 operator+( Vector2 b) const;
     // Subtracts one vector from another.
-    Vector2 operator-(const Vector2 b) const { return Vector2{x - b.x, y - b.y}; }
+    Vector2 operator-( Vector2 b) const;
     // Multiplies one vector by another.
-    Vector2 operator*(const Vector2 b) const { return Vector2{x * b.x, y * b.y}; }
+    Vector2 operator*( Vector2 b) const;
     // Divides one vector over another.
-    Vector2 operator/(const Vector2 b) const { return Vector2{x / b.x, y / b.y}; }
+    Vector2 operator/( Vector2 b) const;
     // Negates a vector.
-    Vector2 operator-() const { return Vector2{-x, -y}; }
+    Vector2 operator-() const;
     // Multiplies a vector by a number.
-    Vector2 operator*(const float d) const { return Vector2{x * d, y * d}; }
+    Vector2 operator*( float d) const;
     // Divides a vector by a number.
-    Vector2 operator/(float d) const { return Vector2(x / d, y / d); }
+    Vector2 operator/(float d) const;
     // Returns true if the vectors are equal.
-    bool operator==(Vector2 rhs) const
-    {
-        // Returns false in the presence of NaN values.
-        float diff_x = x - rhs.x;
-        float diff_y = y - rhs.y;
-        return (diff_x * diff_x + diff_y * diff_y) < kEpsilon * kEpsilon;
-    }
+    bool operator==(Vector2 rhs) const;
 
     // Returns true if vectors are different.
-    bool operator!=(Vector2 rhs) const
-    {
-        // Returns true in the presence of NaN values.
-        return !(*this == rhs);
-    }
-
+    bool operator!=(Vector2 rhs) const;
 };
 
 #endif //SOURCE_VECTOR2_H
