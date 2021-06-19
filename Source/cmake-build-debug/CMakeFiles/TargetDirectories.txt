@@ -1,0 +1,3 @@
+/Users/dongchen/Documents/MyProjects/3d-math/Source/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/dongchen/Documents/MyProjects/3d-math/Source/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/dongchen/Documents/MyProjects/3d-math/Source/cmake-build-debug/CMakeFiles/MathLib.dir
