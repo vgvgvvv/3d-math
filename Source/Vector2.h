@@ -1,9 +1,8 @@
 //
 // Created by 董宸 on 2021/6/19.
 //
+#pragma once
 
-#ifndef SOURCE_VECTOR2_H
-#define SOURCE_VECTOR2_H
 
 class Vector2 {
 public:
@@ -164,4 +163,3 @@ public bool Equals(Vector2 other)
     bool operator!=(Vector2 rhs) const;
 };
 
-#endif //SOURCE_VECTOR2_H

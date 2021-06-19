@@ -3,3 +3,8 @@
 //
 
 #include "Ray.h"
+
+Vector3 Ray::GetPoint(float distance) const
+{
+	return m_Origin + m_Direction * distance;
+}

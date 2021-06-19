@@ -2,8 +2,7 @@
 // Created by 董宸 on 2021/6/19.
 //
 
-#ifndef SOURCE_MATHFUNCS_H
-#define SOURCE_MATHFUNCS_H
+#pragma once
 
 #include <limits>
 #include <cmath>
@@ -199,4 +198,3 @@ namespace Math {
 
 
 
-#endif //SOURCE_MATHFUNCS_H
