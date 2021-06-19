@@ -4,6 +4,8 @@
 
 #include "Bound.h"
 
+#include "Utility.h"
+
 bool Bounds::operator==(Bounds rhs) const
 {
 	// Returns false in the presence of NaN values.

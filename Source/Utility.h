@@ -27,8 +27,10 @@
 #   define ASSERT(condition, message) do { } while (false)
 #endif
 
-class Utility {
 
-};
-
+template <class T>
+void Swap(T & a, T & b)
+{
+    std::swap(a, b);
+}
 

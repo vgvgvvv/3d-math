@@ -5,6 +5,9 @@
 #pragma once
 
 
+class Vector2;
+class Vector3;
+
 class Vector4 {
 	
 public:
@@ -26,13 +29,19 @@ public:
 
     float& operator[](int index);
 
-       // Creates a new vector with given x, y, z, w components.
+    Vector4();
+	
+    // Creates a new vector with given x, y, z, w components.
     Vector4(float x, float y, float z, float w);
     // Creates a new vector with given x, y, z components and sets /w/ to zero.
     Vector4(float x, float y, float z);
     // Creates a new vector with given x, y components and sets /z/ and /w/ to zero.
     Vector4(float x, float y);
 
+    Vector4(Vector3 vec3);
+	
+    Vector4(Vector2 vec2);
+	
     // Set x, y, z and w components of an existing Vector4.
     void Set(float newX, float newY, float newZ, float newW);
 

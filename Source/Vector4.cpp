@@ -4,6 +4,8 @@
 
 #include "Vector4.h"
 #include "Utility.h"
+#include "Vector2.h"
+#include "Vector3.h"
 
 const Vector4 Vector4::zeroVector(0.F, 0.F, 0.F, 0.F);
 const Vector4 Vector4::oneVector(1.F, 1.F, 1.F, 1.F);
@@ -26,6 +28,14 @@ float& Vector4::operator[](int index)
 		break;
 	}
 	return x;
+}
+
+Vector4::Vector4()
+{
+	this->x = 0;
+	this->y = 0;
+	this->z = 0;
+	this->w = 0;
 }
 
 Vector4::Vector4(float x, float y, float z, float w)
@@ -58,6 +68,23 @@ void Vector4::Set(float newX, float newY, float newZ, float newW)
 	y = newY;
 	z = newZ;
 	w = newW;
+}
+
+
+Vector4::Vector4(Vector3 vec3)
+{
+	x = vec3.x;
+	y = vec3.y;
+	z = vec3.z;
+	w = 0;
+}
+
+Vector4::Vector4(Vector2 vec2)
+{
+	x = vec2.x;
+	y = vec2.y;
+	z = 0;
+	w = 0;
 }
 
 Vector4 Vector4::Lerp(Vector4 a, Vector4 b, float t)
