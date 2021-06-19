@@ -18,8 +18,8 @@ target_sources(MathLib
         Bound.h
         Color.cpp
         Color.h
-        Math.cpp
-        Math.h
+        MathFuncs.cpp
+        MathFuncs.h
         Matrix3x3.cpp
         Matrix3x3.h
         Matrix4x4.cpp
