@@ -6,6 +6,7 @@
 
 #include "Vector2.h"
 #include "Utility.h"
+#include "Time.h"
 
 const Vector3 Vector3::zeroVector(0.F, 0.F, 0.F);
 const Vector3 Vector3::oneVector(1.F, 1.F, 1.F);
