@@ -1,3 +1,5 @@
 */cmake-build-debug/
 /_ReSharper.Caches/
 /.vs/
+/out/
+/lib/
