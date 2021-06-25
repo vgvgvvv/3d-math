@@ -260,6 +260,7 @@ bool Matrix4x4::operator!=(Matrix4x4 rhs) const
 
 Vector4 Matrix4x4::GetColumn(int index) const
 {
+	ASSERT(index >= 0 && index <= 3, "Materix col index error");
 	switch (index)
 	{
 	case 0: return {m00, m10, m20, m30};
@@ -273,6 +274,7 @@ Vector4 Matrix4x4::GetColumn(int index) const
 
 Vector4 Matrix4x4::GetRow(int index)
 {
+	ASSERT(index >= 0 && index <= 3, "Materix row index error");
 	switch (index)
 	{
 	case 0: return {m00, m01, m02, m03};
@@ -281,10 +283,12 @@ Vector4 Matrix4x4::GetRow(int index)
 	case 3: return {m30, m31, m32, m33};
 	default: ;
 	}
+	return Vector4::zeroVector;
 }
 
 void Matrix4x4::SetColumn(int index, Vector4 column)
 {
+	ASSERT(index >= 0 && index <= 3, "Materix col index error");
 	Set(0, index, column.x);
 	Set(1, index, column.y);
 	Set(2, index, column.z);
@@ -293,6 +297,7 @@ void Matrix4x4::SetColumn(int index, Vector4 column)
 
 void Matrix4x4::SetRow(int index, Vector4 row)
 {
+	ASSERT(index >= 0 && index <= 3, "Materix row index error");
 	Set(index, 0, row.x);
 	Set(index, 1, row.y);
 	Set(index, 2, row.z);

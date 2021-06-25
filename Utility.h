@@ -14,7 +14,7 @@
 
 #define DOUBLE_INFINITY (std::numeric_limits<double>::infinity())
 
-#ifndef NDEBUG
+#ifndef DEBUG
 #   define ASSERT(condition, message) \
     do { \
         if (! (condition)) { \

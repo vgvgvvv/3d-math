@@ -3,7 +3,7 @@
 //
 
 #include "MathFuncs.h"
-#include "Time.h"
+#include "MathTime.h"
 
 namespace Math {
     float Clamp(float value, float min, float max)
