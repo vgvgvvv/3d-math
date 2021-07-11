@@ -8,27 +8,27 @@
 
 
 // Solid red. RGBA is (1, 0, 0, 1).
-static Color red(1.F, 0.F, 0.F, 1.F);
+const Color Color::red(1.F, 0.F, 0.F, 1.F);
 // Solid green. RGBA is (0, 1, 0, 1).
-static Color green(0.F, 1.F, 0.F, 1.F);
+const Color Color::green(0.F, 1.F, 0.F, 1.F);
 // Solid blue. RGBA is (0, 0, 1, 1).
-static Color blue(0.F, 0.F, 1.F, 1.F);
+const Color Color::blue(0.F, 0.F, 1.F, 1.F);
 // Solid white. RGBA is (1, 1, 1, 1).
-static Color white(1.F, 1.F, 1.F, 1.F);
+const Color Color::white(1.F, 1.F, 1.F, 1.F);
 // Solid black. RGBA is (0, 0, 0, 1).
-static Color black(0.F, 0.F, 0.F, 1.F);
+const Color Color::black(0.F, 0.F, 0.F, 1.F);
 // Yellow. RGBA is (1, 0.92, 0.016, 1), but the color is nice to look at!
-static Color yellow(1.F, 235.F / 255.F, 4.F / 255.F, 1.F);
+const Color Color::yellow(1.F, 235.F / 255.F, 4.F / 255.F, 1.F);
 // Cyan. RGBA is (0, 1, 1, 1).
-static Color cyan(0.F, 1.F, 1.F, 1.F);
+const Color Color::cyan(0.F, 1.F, 1.F, 1.F);
 // Magenta. RGBA is (1, 0, 1, 1).
-static Color magenta(1.F, 0.F, 1.F, 1.F);
+const Color Color::magenta(1.F, 0.F, 1.F, 1.F);
 // Gray. RGBA is (0.5, 0.5, 0.5, 1).
-static Color gray(.5F, .5F, .5F, 1.F);
+const Color Color::gray(.5F, .5F, .5F, 1.F);
 // English spelling for ::ref::gray. RGBA is the same (0.5, 0.5, 0.5, 1).
-static Color grey(.5F, .5F, .5F, 1.F);
+const Color Color::grey(.5F, .5F, .5F, 1.F);
 // Completely transparent. RGBA is (0, 0, 0, 0).
-static Color clear(0.F, 0.F, 0.F, 0.F);
+const Color Color::clear(0.F, 0.F, 0.F, 0.F);
 
 float Color::grayscale() const
 {
