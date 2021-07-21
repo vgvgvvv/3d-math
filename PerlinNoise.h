@@ -4,9 +4,9 @@
 
 #pragma once
 
+#include "3d-math_API.h"
 
-
-class PerlinNoise {
+class _3d_math_API PerlinNoise {
 public:
 	static float Noise(float x, float y);
 

@@ -4,8 +4,10 @@
 
 #pragma once
 
+#include "3d-math_API.h"
 
-class Vector3 {
+
+class _3d_math_API Vector3 {
 
 public:
 

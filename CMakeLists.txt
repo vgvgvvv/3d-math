@@ -17,5 +17,5 @@ ReMake_InitProject()
 
 ReMake_AddTarget(
 	TARGET_NAME 3d-math
-	MODE STATIC
+	MODE SHARED
 )

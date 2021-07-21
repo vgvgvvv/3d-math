@@ -3,8 +3,10 @@
 //
 #pragma once
 
+#include "3d-math_API.h"
 
-class Vector2 {
+
+class _3d_math_API Vector2 {
 public:
     float x;
     float y;

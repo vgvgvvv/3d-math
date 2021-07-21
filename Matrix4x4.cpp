@@ -207,6 +207,16 @@ float& Matrix4x4::operator[](int index)
 	return m00;
 }
 
+const float* Matrix4x4::ToArray() const
+{
+	float arr[16];
+	for(int i = 0; i < 16; i ++)
+	{
+		arr[i] = Get(i);
+	}
+	return arr;
+}
+
 Matrix4x4 Matrix4x4::operator*(Matrix4x4 rhs) const
 {
 	Matrix4x4 res;

@@ -139,6 +139,16 @@ float& Matrix3x3::operator[](int index)
 	return m00;
 }
 
+const float* Matrix3x3::ToArray() const
+{
+	float arr[9];
+	for(int i = 0; i < 9; i ++)
+	{
+		arr[i] = Get(i);
+	}
+	return arr;
+}
+
 Matrix3x3 Matrix3x3::operator*(Matrix3x3 rhs) const
 {
 	Matrix3x3 res = IdentityMatrix;

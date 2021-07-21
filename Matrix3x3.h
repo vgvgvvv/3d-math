@@ -3,9 +3,11 @@
 //
 #pragma once
 
+#include "3d-math_API.h"
+
 class Vector3;
 
-class Matrix3x3 {
+class _3d_math_API Matrix3x3 {
 public:
     ///*undocumented*
     float m00;
@@ -53,6 +55,7 @@ public:
 
     float& operator[](int index);
 
+    const float* ToArray() const;
 
     // override int GetHashCode()
     // {

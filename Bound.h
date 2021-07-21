@@ -5,8 +5,9 @@
 #pragma once
 #include "Ray.h"
 #include "Vector3.h"
+#include "3d-math_API.h"
 
-class Bounds {
+class _3d_math_API Bounds {
     Vector3 m_Center;
     Vector3 m_Extents;
 

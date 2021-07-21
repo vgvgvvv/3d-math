@@ -9,8 +9,9 @@
 #include "Vector3.h"
 #include "Vector4.h"
 #include "Utility.h"
+#include "3d-math_API.h"
 
-struct FrustumPlanes
+struct _3d_math_API FrustumPlanes
 {
     float left;
     float right;
@@ -20,7 +21,7 @@ struct FrustumPlanes
     float zFar;
 };
 
-class Matrix4x4 {
+class _3d_math_API Matrix4x4 {
 public:
     // memory layout:
         //
@@ -100,6 +101,7 @@ public:
 
     float& operator[](int index);
 
+    const float* ToArray() const;
 
     // // used to allow Matrix4x4s to be used as keys in hash tables
     //     override int GetHashCode()
@@ -190,7 +192,6 @@ public:
     //         m30.ToString(format, formatProvider), m31.ToString(format, formatProvider), m32.ToString(format, formatProvider), m33.ToString(format, formatProvider));
     // }
 
-private:
     bool IsIdentity() const;
 
     float GetDeterminant() const;

@@ -1,8 +1,9 @@
 #pragma once
 #include "Ray.h"
 #include "Vector3.h"
+#include "3d-math_API.h"
 
-class Plane
+class _3d_math_API Plane
 {
 
     Vector3 m_Normal;
@@ -11,7 +12,7 @@ public:
 
     // Normal vector of the plane.
     Vector3 GetNormal() { return m_Normal; }
-    Vector3 SetNormal(Vector3 value) { m_Normal = value; }
+    void SetNormal(Vector3 value) { m_Normal = value; }
 
     // Distance from the origin to the plane.
     float GetDistance() { return m_Distance; }

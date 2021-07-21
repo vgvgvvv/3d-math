@@ -4,8 +4,9 @@
 
 #pragma once
 
+#include "3d-math_API.h"
 
-class Color {
+class _3d_math_API Color {
 public:
     // Red component of the color.
     float r;
