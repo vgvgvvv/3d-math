@@ -3,6 +3,8 @@
 //
 #pragma once
 
+#include <vector>
+
 #include "3d-math_API.h"
 
 class Vector3;
@@ -45,7 +47,7 @@ public:
 	    float m20, float m21, float m22);
 
     // Access element at [row, column].
-    float Get(int row, int column);
+    float Get(int row, int column) const;
 
     void Set(int row, int column, float value);
 
@@ -56,6 +58,8 @@ public:
     float& operator[](int index);
 
     const float* ToArray() const;
+
+    std::vector<float> ToVector() const;
 
     // override int GetHashCode()
     // {

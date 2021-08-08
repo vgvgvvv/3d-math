@@ -58,7 +58,7 @@ Matrix3x3::Matrix3x3(float m00, float m01, float m02, float m10, float m11, floa
 	this->m22 = m22;
 }
 
-float Matrix3x3::Get(int row, int column)
+float Matrix3x3::Get(int row, int column) const
 {
 	return Get(row + column * 3);
 }
@@ -148,6 +148,17 @@ const float* Matrix3x3::ToArray() const
 	}
 	return arr;
 }
+
+std::vector<float> Matrix3x3::ToVector() const
+{
+	std::vector<float> vec;
+	for (int i = 0; i < 9; i++)
+	{
+		vec.push_back(Get(i));
+	}
+	return vec;
+}
+
 
 Matrix3x3 Matrix3x3::operator*(Matrix3x3 rhs) const
 {
