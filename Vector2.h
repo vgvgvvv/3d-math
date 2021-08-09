@@ -22,6 +22,8 @@ public:
 
     float& operator[] (int index);
 
+    Vector2() : x(0), y(0) {}
+	
     // Constructs a new vector with given x, y components.
     Vector2(float x, float y){
         this->x = x;
