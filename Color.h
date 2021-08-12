@@ -46,6 +46,11 @@ public:
     // The grayscale value of the color (RO)
     float grayscale() const;
 
+    Color() : r(1), g(1), b(1), a(1)
+    {
+	    
+    }
+	
     // Constructs a new Color with given r,g,b,a components.
     Color(float r, float g, float b, float a)
     {
