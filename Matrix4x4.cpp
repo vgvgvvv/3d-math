@@ -850,3 +850,26 @@ Matrix4x4 Matrix4x4::Frustum1(const FrustumPlanes& fp)
 {
 	return Matrix4x4::Frustum(fp.left, fp.right, fp.bottom, fp.top, fp.zNear, fp.zFar);
 }
+
+Matrix4x4 Matrix4x4::LookAt(const Vector3& eye, const Vector3& center, const Vector3& up)
+{
+	auto f = Vector3::Normalize(center - eye);
+	auto u = Vector3::Normalize(up);
+	auto s = Vector3::Normalize(Vector3::Cross(f, u));
+	u = Vector3::Cross(s, f);
+
+	Matrix4x4 Result = Matrix4x4::identityMatrix;
+	Result.Set(0, 0, s.x);
+	Result.Set(1, 0, s.y);
+	Result.Set(2, 0, s.z);
+	Result.Set(0, 1, u.x);
+	Result.Set(1, 1, u.y);
+	Result.Set(2, 1, u.z);
+	Result.Set(0, 2, -f.x);
+	Result.Set(1, 2, -f.y);
+	Result.Set(2, 2, -f.z);
+	Result.Set(3, 0, -Vector3::Dot(s, eye));
+	Result.Set(3, 1, -Vector3::Dot(u, eye));
+	Result.Set(3, 2, Vector3::Dot(f, eye));
+	return Result;
+}
