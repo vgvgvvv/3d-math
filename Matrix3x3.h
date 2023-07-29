@@ -5,11 +5,11 @@
 
 #include <vector>
 
-#include "3d-math_API.h"
+#include "MathLibAPI.h"
 
 class Vector3;
 
-class _3d_math_API Matrix3x3 {
+class MATHLIB_API Matrix3x3 {
 public:
     ///*undocumented*
     float m00;

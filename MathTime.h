@@ -3,9 +3,9 @@
 //
 #pragma once
 
-#include "3d-math_API.h"
+#include "MathLibAPI.h"
 
-class _3d_math_API Time {
+class MATHLIB_API Time {
 public:
     static float deltaTime;
 };

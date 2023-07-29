@@ -4,10 +4,10 @@
 
 #pragma once
 
-#include "3d-math_API.h"
+#include "MathLibAPI.h"
 
 
-class _3d_math_API Vector3 {
+class MATHLIB_API Vector3 {
 
 public:
 

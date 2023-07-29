@@ -9,9 +9,9 @@
 #include "Vector3.h"
 #include "Vector4.h"
 #include "Utility.h"
-#include "3d-math_API.h"
+#include "MathLibAPI.h"
 
-struct _3d_math_API FrustumPlanes
+struct MATHLIB_API FrustumPlanes
 {
     float left;
     float right;
@@ -21,7 +21,7 @@ struct _3d_math_API FrustumPlanes
     float zFar;
 };
 
-class _3d_math_API Matrix4x4 {
+class MATHLIB_API Matrix4x4 {
 public:
     // memory layout:
         //

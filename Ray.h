@@ -5,9 +5,9 @@
 #pragma once
 
 #include "Vector3.h"
-#include "3d-math_API.h"
+#include "MathLibAPI.h"
 
-class _3d_math_API Ray {
+class MATHLIB_API Ray {
 private:
 	Vector3 m_Origin;
     Vector3 m_Direction;

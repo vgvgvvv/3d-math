@@ -4,13 +4,13 @@
 
 #pragma once
 
-#include "3d-math_API.h"
+#include "MathLibAPI.h"
 
 class Vector3;
 class Matrix3x3;
 class Matrix4x4;
 
-class _3d_math_API Quaternion {
+class MATHLIB_API Quaternion {
 
 public:
     // X component of the Quaternion. Don't modify this directly unless you know quaternions inside out.
