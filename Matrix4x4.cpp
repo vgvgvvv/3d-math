@@ -207,17 +207,17 @@ float& Matrix4x4::operator[](int index)
 	return m00;
 }
 
-const float* Matrix4x4::ToArray() const
+std::vector<float> Matrix4x4::ToArray() const
 {
-	float arr[16];
+	std::vector<float> arr;
 	for(int i = 0; i < 16; i ++)
 	{
-		arr[i] = Get(i);
+		arr.push_back(Get(i));
 	}
 	return arr;
 }
 
-const std::vector<float> Matrix4x4::ToVector() const
+std::vector<float> Matrix4x4::ToVector() const
 {
 	std::vector<float> vec;
 	for (int i = 0; i < 16; i++)

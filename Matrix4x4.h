@@ -101,9 +101,9 @@ public:
 
     float& operator[](int index);
 
-    const float* ToArray() const;
+	std::vector<float> ToArray() const;
 
-    const std::vector<float> ToVector() const;
+    std::vector<float> ToVector() const;
 
     // // used to allow Matrix4x4s to be used as keys in hash tables
     //     override int GetHashCode()
