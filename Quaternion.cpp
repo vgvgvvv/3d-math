@@ -362,19 +362,19 @@ Quaternion Quaternion::FromMatrix3x3(Matrix3x3 m)
 		int i = 0;
 		if (kRot.m11 > kRot.m00)
 			i = 1;
-		if (kRot.m22 > kRot[i, i])
+		if (kRot.m22 > kRot.Get(i, i))
 			i = 2;
 		int j = s_iNext[i];
 		int k = s_iNext[j];
 
-		fRoot = Math::Sqrt(kRot[i, i] - kRot[j, j] - kRot[k, k] + 1.0f);
+		fRoot = Math::Sqrt(kRot.Get(i, i) - kRot.Get(j, j) - kRot.Get(k, k) + 1.0f);
 		float apkQuat[] = {q.x, q.y, q.z};
 		// AssertIf (fRoot < Vector3.kEpsilon);
 		apkQuat[i] = 0.5f * fRoot;
 		fRoot = 0.5f / fRoot;
-		q.w = (kRot[k, j] - kRot[j, k]) * fRoot;
-		apkQuat[j] = (kRot[j, i] + kRot[i, j]) * fRoot;
-		apkQuat[k] = (kRot[k, i] + kRot[i, k]) * fRoot;
+		q.w = (kRot.Get(k, j) - kRot.Get(j, k)) * fRoot;
+		apkQuat[j] = (kRot.Get(j, i) + kRot.Get(i, j)) * fRoot;
+		apkQuat[k] = (kRot.Get(k, i) + kRot.Get(i, k)) * fRoot;
 	}
 	q = Normalize(q);
 	return q;

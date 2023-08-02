@@ -57,8 +57,6 @@ public:
 
     float& operator[](int index);
 
-    const float* ToArray() const;
-
     std::vector<float> ToVector() const;
 
     // override int GetHashCode()
